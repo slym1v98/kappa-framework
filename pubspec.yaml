@@ -3,7 +3,7 @@ description: "A new Flutter framework for Web with Clean Architecture."
 version: 0.0.1
 
 environment:
-  sdk: ^3.11.0
+  sdk: ^3.9.0
   flutter: '>=3.3.0'
 
 dependencies:

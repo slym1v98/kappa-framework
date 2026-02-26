@@ -32,6 +32,28 @@ Dùng để thiết lập các cấu hình ban đầu cho dự án.
 dart bin/kappa.dart init
 ```
 
+### Tạo các thành phần (Generate)
+Lệnh này giúp tạo nhanh các file thành phần bên trong một module.
+
+```bash
+dart bin/kappa.dart generate <loại> <tên_module> <tên_thành_phần>
+```
+
+**Các loại thành phần hỗ trợ:**
+- `page`: Tạo một UI Page trong `presentation/pages`
+- `bloc`: Tạo một Bloc trong `presentation/bloc`
+- `repository`: Tạo Interface Repo trong `domain/repositories` và bản thực thi trong `data/repositories`
+- `model`: Tạo Data Model trong `data/models`
+- `entity`: Tạo Domain Entity trong `domain/entities`
+- `usecase`: Tạo Use Case trong `domain/usecases`
+
+**Ví dụ:**
+```bash
+dart bin/kappa.dart generate page auth login
+dart bin/kappa.dart generate bloc auth auth
+dart bin/kappa.dart generate repository auth user
+```
+
 ## 3. Đăng ký Module sau khi tạo
 
 Sau khi tạo module bằng CLI, bạn cần thực hiện 2 bước để module hoạt động:
