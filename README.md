@@ -1,18 +1,67 @@
-# kappa_framework
+# Kappa Framework 🚀
 
-A new Flutter plugin project.
+**Kappa Framework** là một nền tảng phát triển ứng dụng Flutter (tối ưu cho Web) dựa trên nguyên tắc Clean Architecture và thiết kế hướng Module.
 
-## Getting Started
+## ✨ Tính năng nổi bật
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/to/develop-plugins),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+- 🏗️ **Clean Architecture**: Tách biệt rõ ràng Data, Domain và Presentation.
+- 📦 **Modular Design**: Quản lý ứng dụng theo các module độc lập.
+- 💉 **Dependency Injection**: Tích hợp sẵn Service Locator (GetIt).
+- 🛣️ **Smart Routing**: Quản lý điều hướng tập trung với GoRouter.
+- ⚡ **BLoC State Management**: Tối ưu hóa việc quản lý trạng thái Loading/Success/Error.
+- 🌐 **Responsive Grid**: Hệ thống Row/Col chuẩn 12 cột cho Web.
+- 🛠️ **Kappa CLI**: Công cụ sinh code nhanh chóng.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📚 Tài liệu chi tiết
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` in this directory.
-You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/to/pubspec-plugin-platforms.
+- [Kiến trúc hệ thống (Architecture)](docs/ARCHITECTURE.md)
+- [Hướng dẫn sử dụng CLI](docs/CLI.md)
+- [Các thành phần Core (Engine, Bloc, Network)](docs/COMPONENTS.md)
+
+## 🚀 Bắt đầu nhanh
+
+### 1. Khởi tạo Engine
+Trong `lib/main.dart`:
+
+```dart
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  await KappaEngine.init(
+    modules: [
+      HomeModule(),
+      AuthModule(),
+    ],
+  );
+
+  runApp(const MyApp());
+}
+```
+
+### 2. Cấu hình App
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      title: 'Kappa App',
+      theme: KappaTheme.light(),
+      routerConfig: KappaEngine.router,
+    );
+  }
+}
+```
+
+### 3. Tạo module mới bằng CLI
+```bash
+dart bin/kappa.dart module profile
+```
+
+## 🛠️ Yêu cầu hệ thống
+
+- Flutter SDK: `>=3.3.0`
+- Dart SDK: `^3.11.0`
+
+## 📄 Giấy phép
+
+Dự án này được phát hành dưới giấy phép [LICENSE](LICENSE).
